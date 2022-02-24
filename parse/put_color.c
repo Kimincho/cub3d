@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_err.c                                        :+:      :+:    :+:   */
+/*   put_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 13:11:28 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/24 15:59:53 by minchoi          ###   ########.fr       */
+/*   Created: 2022/02/24 16:39:19 by minchoi           #+#    #+#             */
+/*   Updated: 2022/02/24 16:41:58 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int print_err(int err_no)
+void	put_floor(char **split, t_data *data)
 {
-	printf("ERROR : ");
-	if (err_no == INVALID_ARG)
-		printf("Invalid argument");
-	else if (err_no == OPEN_ERR)
-		printf("Failed to open the file");
-	else if (err_no == INVALID_ELEMENT)
-		printf("Invalid element in the file");
-	// 메모리 해제 함수 호출 필요
-	exit(1);
+	int i;
+	int j;
+
+	i = 0;
+	while (split[++i])
+	{
+		data->floor = data->floor << 8;
+		ft_atoi(split[i], &j);
+		data->floor += j;
+	}
+}
+
+void	put_ceiling(char **split, t_data *data)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (split[++i])
+	{
+		data->ceiling = data->ceiling << 8;
+		ft_atoi(split[i], &j);
+		data->ceiling += j;
+	}
 }

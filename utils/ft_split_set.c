@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 16:42:54 by hynam             #+#    #+#             */
-/*   Updated: 2022/02/24 15:17:39 by minchoi          ###   ########.fr       */
+/*   Created: 2022/02/24 15:06:47 by minchoi           #+#    #+#             */
+/*   Updated: 2022/02/24 15:28:38 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cub3d.h"
 
-size_t	count_w(char const *s, char c)
+int		in_charset(char *charset, char c)
+{
+	int	i;
+
+	i = 0;
+	while (charset[i])
+	{
+		if (c == charset[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+size_t	count_w(char const *s, char *charset)
 {
 	size_t	n;
 	int		i;
@@ -21,10 +35,10 @@ size_t	count_w(char const *s, char c)
 	n = 0;
 	while (s[i])
 	{
-		if (c != s[i])
+		if (in_charset(charset, s[i]))
 		{
 			n++;
-			while (s[i] && c != s[i])
+			while (s[i] && in_charset(charset, s[i]))
 				i++;
 		}
 		else
@@ -60,31 +74,31 @@ char	**ft_free(char **s)
 	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split_set(char *s, char *charset)
 {
 	char	**str;
 	char	*tmp;
 	size_t	i;
 
 	i = 0;
-	str = (char **)malloc(sizeof(char *) * (count_w(s, c) + 1));
+	str = (char **)malloc(sizeof(char *) * (count_w(s, charset) + 1));
 	if (!s || str == NULL)
-		return (0);
+		return (NULL);
 	while (*s)
 	{
-		if (*s != c)
+		if (in_charset(charset, *s))
 		{
-			tmp = (char *)s;
-			while (*s && *s != c)
+			tmp = s;
+			while (*s && in_charset(charset, *s))
 				s++;
 			str[i] = (char *)malloc((s - tmp) + 1);
 			if (str[i] == NULL)
 				return (ft_free(str));
-			ft_strcpy(str[i++], tmp, (char *)s);
+			ft_strcpy(str[i++], tmp, s);
 		}
 		else
 			s++;
 	}
-	str[i] = 0;
+	str[i] = '\0';
 	return (str);
 }

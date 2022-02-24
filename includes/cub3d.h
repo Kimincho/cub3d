@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/24 14:54:35 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/24 16:49:12 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # define INVALID_ARG			0
 # define OPEN_ERR				1
+# define INVALID_ELEMENT		2
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
@@ -43,8 +44,8 @@ typedef struct s_param {
 typedef struct s_data {
 	char	*no_xpm;
 	char	*so_xpm;
-	char	*ea_xpm;
 	char	*we_xpm;
+	char	*ea_xpm;
 	int		floor;
 	int		ceiling;
 	int		flag;
@@ -81,6 +82,7 @@ typedef struct s_img {
 int		print_err(int err_no);
 char	*get_next_line(int fd);
 void	init_data(t_data *data);
+char	**ft_split_set(char *s, char *charset);
 
 /*
 ** ==================
@@ -89,5 +91,8 @@ void	init_data(t_data *data);
 */
 void	parse_cub(t_data *data, char *file_path);
 int		check_type(char *line);
+int		check_color(char **split);
+void	put_floor(char **split, t_data *data);
+void	put_ceiling(char **split, t_data *data);
 
 #endif

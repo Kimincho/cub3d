@@ -8,8 +8,10 @@ SRCS =	main.c\
 		./utils/get_next_line.c\
 		./utils/print_err.c\
 		./utils/init.c\
+		./utils/ft_split_set.c\
 		./parse/parse_cub.c\
 		./parse/parse_utils.c\
+		./parse/put_color.c\
 
 OBJS = $(SRCS:.c=.o)
 
