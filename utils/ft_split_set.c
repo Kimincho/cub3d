@@ -6,13 +6,13 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:06:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/24 15:28:38 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:06:08 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int		in_charset(char *charset, char c)
+int	in_charset(char *charset, char c)
 {
 	int	i;
 

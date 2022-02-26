@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:06:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/24 21:57:58 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 14:02:46 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,12 @@ void	put_ceiling(char **split, t_data *data)
 ** 올바르면 동,서,남,북 식별자 별로 값 저장
 ** split[1] = NULL; //나중에 free 할 때 해제가 되지 않도록 하기 위함
 */
-void	parse_xpm(char **split, t_data *data)
+int	parse_xpm(char **split, t_data *data)
 {
 	if (check_xpm(split))
 	{
-		printf("1\n");
 		ft_free(split);
-		print_err(INVALID_ELEMENT);
+		return (print_err(INVALID_ELEMENT));
 	}
 	if (!ft_strcmp(split[0], "NO"))
 		data->no_xpm = split[1];
@@ -66,12 +65,15 @@ void	parse_xpm(char **split, t_data *data)
 	else if (!ft_strcmp(split[0], "EA"))
 		data->ea_xpm = split[1];
 	split[1] = NULL;
+	data->flag++;
+	ft_free(split);
+	return (0);
 }
 
 /*
 ** check_color() 로 .cub 파일에 color element 가 올바른 지 체크
 */
-void	parse_color(char **split, t_data *data)
+int	parse_color(char **split, t_data *data)
 {
 	int	i;
 
@@ -79,12 +81,15 @@ void	parse_color(char **split, t_data *data)
 	if (check_color(split))
 	{
 		ft_free(split);
-		print_err(INVALID_ELEMENT);
+		return (print_err(INVALID_ELEMENT));
 	}
 	if (!ft_strcmp(split[0], "F"))
 		put_floor(split, data);
 	else
 		put_ceiling(split, data);
+	data->flag++;
+	ft_free(split);
+	return (0);
 }
 
 /*
@@ -92,14 +97,13 @@ void	parse_color(char **split, t_data *data)
 ** 식별자가 'F' 또는 'C' 일 경우 -> parse_color() 호출
 ** 식별자가 그 외에 경우 -> parse_xpm() 호출
 */
-void	parse_type(char *line, t_data *data)
+int	parse_type(char *line, t_data *data)
 {
 	char	**split;
 
 	split = ft_split_set(line, " \t\n\v\f\r,");
 	if (!ft_strcmp(split[0], "F") || !ft_strcmp(split[0], "C"))
-		parse_color(split, data);
+		return (parse_color(split, data));
 	else
-		parse_xpm(split, data);
-	data->flag++;
+		return (parse_xpm(split, data));
 }

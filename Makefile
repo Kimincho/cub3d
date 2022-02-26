@@ -9,6 +9,7 @@ SRCS =	main.c\
 		./utils/print_err.c\
 		./utils/init.c\
 		./utils/ft_split_set.c\
+		./utils/free.c\
 		./parse/parse_cub.c\
 		./parse/parse_type.c\
 		./parse/parse_map.c\
