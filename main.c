@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:36:09 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 20:12:13 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int argc, char *argv[])
 		return (print_err(INVALID_ARG));
 	parse_cub(&data, argv[1]);
 
-	printf("%s\n", data.no_xpm);
-	printf("%s\n", data.so_xpm);
-	printf("%s\n", data.we_xpm);
-	printf("%s\n", data.ea_xpm);
+	printf("%s\n", data.xpm_path[NO]);
+	printf("%s\n", data.xpm_path[SO]);
+	printf("%s\n", data.xpm_path[WE]);
+	printf("%s\n", data.xpm_path[EA]);
 	printf("%d\n", data.floor);
 	printf("%d\n", data.ceiling);
 	i = -1;

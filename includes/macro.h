@@ -6,12 +6,22 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:06:31 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:46:45 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 20:10:55 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACRO_H
 # define MACRO_H
+
+/*
+** ==================
+** Compass
+** ==================
+*/
+# define NO						0
+# define SO						1
+# define WE						2
+# define EA						3
 
 /*
 ** ==================

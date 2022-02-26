@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:18:44 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 13:34:18 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 20:14:14 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_data(t_data *data)
 {
-	data->no_xpm = NULL;
-	data->so_xpm = NULL;
-	data->we_xpm = NULL;
-	data->ea_xpm = NULL;
+	data->xpm_path[NO] = NULL;
+	data->xpm_path[SO] = NULL;
+	data->xpm_path[WE]= NULL;
+	data->xpm_path[EA] = NULL;
 	data->floor = 0;
 	data->ceiling = 0;
 	data->flag = 0;

@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:23:49 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 20:12:15 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@
 # include "macro.h"
 
 typedef struct s_data {
-	char	*no_xpm;
-	char	*so_xpm;
-	char	*we_xpm;
-	char	*ea_xpm;
+	char	*xpm_path[4];
 	int		floor;
 	int		ceiling;
 	int		flag;
