@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/24 21:55:35 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 15:36:09 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	main(int argc, char *argv[])
 	i = -1;
 	while (data.map[++i])
 		printf("%s\n", data.map[i]);
+	printf("player camera dir : %c\n", data.p_dir);
+	printf("player loc y = %d, x = %d\n", data.p_loc_row, data.p_loc_col);
 	return (0);
 }
