@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:06:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:02:46 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/26 20:12:20 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ int	parse_xpm(char **split, t_data *data)
 		return (print_err(INVALID_ELEMENT));
 	}
 	if (!ft_strcmp(split[0], "NO"))
-		data->no_xpm = split[1];
+		data->xpm_path[NO] = split[1];
 	else if (!ft_strcmp(split[0], "SO"))
-		data->so_xpm = split[1];
+		data->xpm_path[SO] = split[1];
 	else if (!ft_strcmp(split[0], "WE"))
-		data->we_xpm = split[1];
+		data->xpm_path[WE] = split[1];
 	else if (!ft_strcmp(split[0], "EA"))
-		data->ea_xpm = split[1];
+		data->xpm_path[EA] = split[1];
 	split[1] = NULL;
 	data->flag++;
 	ft_free(split);
