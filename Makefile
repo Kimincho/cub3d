@@ -14,6 +14,8 @@ SRCS =	main.c\
 		./parse/parse_type.c\
 		./parse/parse_map.c\
 		./parse/parse_utils.c\
+		./laycasting/laycasting.c\
+		./utils/ft_fabs.c\
 
 OBJS = $(SRCS:.c=.o)
 

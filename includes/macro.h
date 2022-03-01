@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:06:31 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 20:10:55 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/02/28 23:18:14 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACRO_H
 # define MACRO_H
+
+/*
+** ==================
+** Window Option
+** ==================
+*/
+# define WIDTH					640
+# define HEIGHT					480
 
 /*
 ** ==================

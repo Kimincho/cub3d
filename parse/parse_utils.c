@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 15:24:21 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/01 11:08:55 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	is_player(t_data *data, int i, int j)
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 	{
 		data->p_dir = c;
-		data->p_loc_row = i;
-		data->p_loc_col = j;
+		data->lay_info->pos_x = j;
+		data->lay_info->pos_y = i;
 		return (1);
 	}
 	return (0);
