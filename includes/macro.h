@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:06:31 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/28 23:18:14 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/02 11:51:07 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 */
 # define WIDTH					640
 # define HEIGHT					480
+# define TEXTUREWIDTH			64
+# define TEXTUREHEIGHT			64
 
 /*
 ** ==================

@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:45:53 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 20:13:05 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/01 16:36:45 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	free_all(int fd, char *line, t_data *data)
 	if (line != NULL)
 		free(line);
 	i = -1;
-	while (data->xpm_path[i])
+	while (data->xpm_path[++i])
 		free(data->xpm_path[i]);
 	if (data->map != NULL)
 	{

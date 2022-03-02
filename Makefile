@@ -1,6 +1,6 @@
 CC = gcc
 # -Wall -Wextra -Werror 
-CFLAGS = -L./mlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
+CFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
 
 NAME = cub3d
 
@@ -16,6 +16,9 @@ SRCS =	main.c\
 		./parse/parse_utils.c\
 		./laycasting/laycasting.c\
 		./utils/ft_fabs.c\
+		./key/key_main.c\
+		./key/key_move.c\
+		./key/key_rotate.c\
 
 OBJS = $(SRCS:.c=.o)
 
