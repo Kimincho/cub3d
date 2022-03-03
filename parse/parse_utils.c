@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 13:22:31 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 15:03:02 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	is_player(t_data *data, int i, int j)
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 	{
 		data->p_dir = c;
-		data->lay_info->pos_x = j + 0.5;
-		data->lay_info->pos_y = i + 0.5;
+		data->cam->pos_x = j + 0.5;
+		data->cam->pos_y = i + 0.5;
 		return (1);
 	}
 	return (0);
