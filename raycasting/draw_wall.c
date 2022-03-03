@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:49:02 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 17:00:04 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 17:11:47 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	draw_wall(t_data *data)
 	int	x;
 
 	x = -1;
-	draw_floor_ceil(data, data->cam);
 	while (++x < WIDTH)
 	{
 		init_cam(data->cam, data->ray, x);

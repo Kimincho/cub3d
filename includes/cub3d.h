@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 16:57:14 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 17:11:26 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int		is_player(t_data *data, int i, int j);
 ** raycasting
 ** ==================
 */
-void	lay_loop(t_data *data);
+void	ray_loop(t_data *data);
 void	draw_wall(t_data *data);
 void	init_cam(t_cam *cam, t_ray *ray, int x);
 void	calc_side_dist(t_cam *cam, t_ray *ray);
