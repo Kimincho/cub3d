@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 16:13:21 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 16:57:14 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int		is_player(t_data *data, int i, int j);
 
 /*
 ** ==================
-** laycasting
+** raycasting
 ** ==================
 */
 void	lay_loop(t_data *data);
@@ -140,6 +140,7 @@ void	calc_line_hieght(t_cam *cam, t_ray *ray);
 void	select_texture(t_cam *cam, t_ray *ray, t_tex *tex);
 void	tex_to_buf(t_cam *cam, t_ray *ray, t_tex *tex, int x);
 void	buf_to_img(t_data *data);
+void	draw_floor_ceil(t_data *data, t_cam *cam);
 
 /*
 ** ==================
@@ -153,5 +154,7 @@ void	key_s(t_cam *cam, char **map);
 void	key_d(t_cam *cam, char **map);
 void	key_ar_l(t_cam *cam);
 void	key_ar_r(t_cam *cam);
+
+int		close_game(t_data *data);
 
 #endif

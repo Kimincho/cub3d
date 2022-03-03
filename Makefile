@@ -14,10 +14,11 @@ SRCS =	main.c\
 		./parse/parse_type.c\
 		./parse/parse_map.c\
 		./parse/parse_utils.c\
-		./laycasting/laycasting.c\
-		./laycasting/draw_wall.c\
-		./laycasting/draw_util.c\
-		./laycasting/dda.c\
+		./raycasting/raycasting.c\
+		./raycasting/draw_wall.c\
+		./raycasting/draw_util.c\
+		./raycasting/draw_bg.c\
+		./raycasting/dda.c\
 		./key/key_main.c\
 		./key/key_move.c\
 		./key/key_rotate.c\

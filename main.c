@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 15:20:31 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 16:57:05 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	init_dir(t_data *data)
 		{
 			data->cam->dir_y *= -1;
 			data->cam->plane_x = 0.66;
-		}
-			
+		}		
 	}
 	else if (data->p_dir == 'W' || data->p_dir == 'E')
 	{
@@ -65,6 +64,12 @@ void	load_texture(t_data *data)
 		load_image(data, data->cam->texture[i], data->xpm_path[i], &img);
 }
 
+int	close_game(t_data *data)
+{
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
+}
+
 int	main(int argc, char *argv[])
 {
 	int		i;
@@ -74,7 +79,6 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (print_err(INVALID_ARG));
 	parse_cub(&data, argv[1]);
-
 	//Test to load xpm image file
 	for (int i=0; i<HEIGHT; i++)
 	{
@@ -99,7 +103,6 @@ int	main(int argc, char *argv[])
 	}
 	data.mlx = mlx_init();
 	load_texture(&data);
-
 	init_dir(&data);
 	printf("(dirx %f, diry %f), (posx %f, posy %f)\n", data.cam->dir_x, data.cam->dir_y, data.cam->pos_x, data.cam->pos_y);
 	init_mlx(&data);
