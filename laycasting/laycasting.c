@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   laycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 22:14:10 by gkim              #+#    #+#             */
-/*   Updated: 2022/03/02 13:01:15 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 14:21:32 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,14 @@ void	calc(t_data *data)
 
 	x = 0;
 	info = data->lay_info;
+	for (int y = 0; y < HEIGHT; y++)
+	{
+		for (int x = 0; x < WIDTH; x++)
+		{
+			info->buf[y][x] = data->floor;
+			info->buf[HEIGHT - y - 1][x] = data->ceiling;
+		}
+	}
 	while (x < WIDTH)
 	{
 		init_calc(data, x);
@@ -148,6 +156,36 @@ void	calc(t_data *data)
 				color = (color >> 1) & 8355711;
 			info->buf[y][x] = color;
 		}
+		double	floor_x_wall, floor_y_wall;
+
+		if (!info->side && info->raydir_x > 0)
+		{
+			floor_x_wall = info->map_x;
+			floor_y_wall = info->map_x + wallX;
+		}
+		else if (!info->side && info->raydir_x < 0)
+		{
+			floor_x_wall = info->map_x + 1.0;
+			floor_y_wall = info->map_x + wallX;
+		}
+		else if (info->side && info->raydir_y > 0)
+		{
+			floor_x_wall = info->map_x + wallX;
+			floor_y_wall = info->map_y;
+		}
+		else
+		{
+			floor_x_wall = info->map_x + wallX;
+			floor_y_wall = info->map_y + 1.0;
+		}
+
+		double	dist_wall, dist_player, current_dist;
+		dist_wall = info->wall_dist;
+		dist_player = 0.0;
+
+		if (draw_end < 0)
+			draw_end = HEIGHT;
+		
 		x++;
 	}
 }
@@ -167,8 +205,9 @@ void	draw(t_data *data)
 	mlx_put_image_to_window(data->mlx_info.mlx, data->mlx_info.win, info->img.img, 0, 0);
 }
 
-void	lay_loop(t_data *data)
+int	lay_loop(t_data *data)
 {
 	calc(data);
 	draw(data);
+	return (0);
 }

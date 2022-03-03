@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 13:14:28 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/02 21:51:19 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ int	main(int argc, char *argv[])
 			data.lay_info->texture[i][j] = 0;
 		}
 	}
+	data.mlx_info.mlx = mlx_init();
 	load_texture(&data);
-
 	init_dir(&data);
 	printf("(dirx %f, diry %f), (posx %f, posy %f)\n", data.lay_info->dir_x, data.lay_info->dir_y, data.lay_info->pos_x, data.lay_info->pos_y);
 	init_mlx(&data);
