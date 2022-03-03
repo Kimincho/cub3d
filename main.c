@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 21:51:19 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 14:30:39 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,12 @@ void	load_texture(t_data *data)
 
 	for (int i=0; i<4; i++)
 		load_image(data, data->lay_info->texture[i], data->xpm_path[i], &img);
+}
+
+int	close_game(t_data *data)
+{
+	mlx_destroy_window(data->mlx_info.mlx, data->mlx_info.win);
+	exit(0);
 }
 
 int	main(int argc, char *argv[])

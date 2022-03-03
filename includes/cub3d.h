@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 21:50:42 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 14:30:59 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,7 @@ void	key_s(t_lay *info, char **map);
 void	key_d(t_lay *info, char **map);
 void	key_ar_l(t_lay *info);
 void	key_ar_r(t_lay *info);
+
+int	close_game(t_data *data);
 
 #endif
