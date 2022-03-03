@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 16:57:05 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 19:56:46 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (print_err(INVALID_ARG));
-	parse_cub(&data, argv[1]);
+	if (parse_cub(&data, argv[1]) > 0)
+		return (0);
 	//Test to load xpm image file
 	for (int i=0; i<HEIGHT; i++)
 	{
