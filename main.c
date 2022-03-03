@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 13:14:28 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 15:20:31 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,37 @@ void	init_dir(t_data *data)
 {
 	if (data->p_dir == 'N' || data->p_dir == 'S')
 	{
-		data->lay_info->plane_x = -0.66;
-		data->lay_info->plane_y = 0;
-		data->lay_info->dir_x = 0;
-		data->lay_info->dir_y = 1;
+		data->cam->plane_x = -0.66;
+		data->cam->plane_y = 0;
+		data->cam->dir_x = 0;
+		data->cam->dir_y = 1;
 		if (data->p_dir == 'N')
 		{
-			data->lay_info->dir_y *= -1;
-			data->lay_info->plane_x = 0.66;
+			data->cam->dir_y *= -1;
+			data->cam->plane_x = 0.66;
 		}
 			
 	}
 	else if (data->p_dir == 'W' || data->p_dir == 'E')
 	{
-		data->lay_info->plane_x = 0;
-		data->lay_info->plane_y = 0.66;
-		data->lay_info->dir_x = 1;
-		data->lay_info->dir_y = 0;
+		data->cam->plane_x = 0;
+		data->cam->plane_y = 0.66;
+		data->cam->dir_x = 1;
+		data->cam->dir_y = 0;
 		if (data->p_dir == 'W')
 		{
-			data->lay_info->dir_x *= -1;
-			data->lay_info->plane_y = -0.66;
+			data->cam->dir_x *= -1;
+			data->cam->plane_y = -0.66;
 		}
 	}
-	data->lay_info->m_speed = 0.05;
-	data->lay_info->r_speed = 0.05;
+	data->cam->m_speed = 0.05;
+	data->cam->r_speed = 0.05;
 }
 
 void	load_image(t_data *data, int *texture, char *path, t_img *img)
 {
-	img->img = mlx_xpm_file_to_image(data->mlx_info.mlx, path, &img->img_width, &img->img_height);
+	img->img = mlx_xpm_file_to_image(data->mlx, path, &img->img_width, &img->img_height);
 	img->data = (int *)mlx_get_data_addr(img->img, &img->bpp, &img->size_l, &img->endian);
-	printf("%d, %d\n", img->img_height, img->img_width);
 	for (int y = 0; y < img->img_height; y++)
 	{
 		for (int x = 0; x < img->img_width; x++)
@@ -55,7 +54,7 @@ void	load_image(t_data *data, int *texture, char *path, t_img *img)
 			texture[img->img_width * y + x] = img->data[img->img_width * y + x];
 		}
 	}
-	// mlx_destroy_image(data->mlx_info.mlx, img->img);
+	mlx_destroy_image(data->mlx, img->img);
 }
 
 void	load_texture(t_data *data)
@@ -63,7 +62,7 @@ void	load_texture(t_data *data)
 	t_img	img;
 
 	for (int i=0; i<4; i++)
-		load_image(data, data->lay_info->texture[i], data->xpm_path[i], &img);
+		load_image(data, data->cam->texture[i], data->xpm_path[i], &img);
 }
 
 int	main(int argc, char *argv[])
@@ -81,27 +80,28 @@ int	main(int argc, char *argv[])
 	{
 		for (int j=0; j<WIDTH; j++)
 		{
-			data.lay_info->buf[i][j] = 0;
+			data.cam->buf[i][j] = 0;
 		}
 	}
-	if (!(data.lay_info->texture = (int **)malloc(sizeof(int *) * 4)))
+	if (!(data.cam->texture = (int **)malloc(sizeof(int *) * 4)))
 		return (-1);
 	for (int i=0; i<4; i++)
 	{
-		if (!(data.lay_info->texture[i] = (int *)malloc(sizeof(int) * (TEXTUREHEIGHT * TEXTUREWIDTH))))
+		if (!(data.cam->texture[i] = (int *)malloc(sizeof(int) * (TEXTUREHEIGHT * TEXTUREWIDTH))))
 			return (-1);
 	}
 	for (int i=0; i<4; i++)
 	{
 		for (int j=0; j<TEXTUREWIDTH*TEXTUREHEIGHT; j++)
 		{
-			data.lay_info->texture[i][j] = 0;
+			data.cam->texture[i][j] = 0;
 		}
 	}
+	data.mlx = mlx_init();
 	load_texture(&data);
 
 	init_dir(&data);
-	printf("(dirx %f, diry %f), (posx %f, posy %f)\n", data.lay_info->dir_x, data.lay_info->dir_y, data.lay_info->pos_x, data.lay_info->pos_y);
+	printf("(dirx %f, diry %f), (posx %f, posy %f)\n", data.cam->dir_x, data.cam->dir_y, data.cam->pos_x, data.cam->pos_y);
 	init_mlx(&data);
 	return (0);
 }

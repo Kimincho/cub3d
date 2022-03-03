@@ -15,7 +15,9 @@ SRCS =	main.c\
 		./parse/parse_map.c\
 		./parse/parse_utils.c\
 		./laycasting/laycasting.c\
-		./utils/ft_fabs.c\
+		./laycasting/draw_wall.c\
+		./laycasting/draw_util.c\
+		./laycasting/dda.c\
 		./key/key_main.c\
 		./key/key_move.c\
 		./key/key_rotate.c\

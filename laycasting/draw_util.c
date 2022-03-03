@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fabs.c                                          :+:      :+:    :+:   */
+/*   draw_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 00:54:35 by gkim              #+#    #+#             */
-/*   Updated: 2022/03/01 01:03:44 by gkim             ###   ########.fr       */
+/*   Created: 2022/03/02 22:58:47 by minchoi           #+#    #+#             */
+/*   Updated: 2022/03/03 12:46:47 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-double	ft_fabs(double n)
+void	buf_to_img(t_data *data)
 {
-	if (n < 0)
-		return (n * (-1));
-	return (n);
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < HEIGHT)
+	{
+		j = -1;
+		while (++j < WIDTH)
+			data->cam->img.data[i * WIDTH + j] = data->cam->buf[i][j];
+	}
 }

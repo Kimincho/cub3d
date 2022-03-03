@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 12:02:16 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 16:13:21 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@
 # include "../mlx/mlx.h"
 # include "macro.h"
 
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-}	t_mlx;
-
 typedef struct s_img
 {
 	void	*img;
@@ -41,8 +35,36 @@ typedef struct s_img
 	int		img_height;
 }	t_img;
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	int		map_x;
+	int		map_y;
+	double	sidedist_x;
+	double	sidedist_y;
+	double	deldist_x;
+	double	deldist_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+	double	wall_dist;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_ray;
 
-typedef struct s_lay
+typedef struct s_tex
+{
+	int		tex_num;
+	double	wall_x;
+	int		tex_x;
+	double	step;
+	double	tex_pos;
+}	t_tex;
+
+typedef struct s_cam
 {
 	double	pos_x;
 	double	pos_y;
@@ -53,27 +75,16 @@ typedef struct s_lay
 	double	m_speed;
 	double	r_speed;
 
-	double	camera_x;
-	double	raydir_x;
-	double	raydir_y;
-	int		map_x;
-	int		map_y;
-	double	sidedist_x;
-	double	sidedist_y;
-	double	deldist_x;
-	double	deldist_y;
-	double	wall_dist;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	int		side;
-
 	int		**texture;
 	int		buf[HEIGHT][WIDTH];
 	t_img	img;
-}	t_lay;
+}	t_cam;
 
-typedef struct s_data {
+typedef struct s_data
+{
+	void	*mlx;
+	void	*win;
+
 	char	*xpm_path[4];
 	int		floor;
 	int		ceiling;
@@ -82,9 +93,11 @@ typedef struct s_data {
 	char	p_dir;
 	int		m_row;
 	char	**map;
-	t_mlx	mlx_info;
-	t_lay	*lay_info;
-}				t_data;
+	// t_mlx	mlx_cam;
+	t_ray	*ray;
+	t_cam	*cam;
+	t_tex	*tex;
+}	t_data;
 
 /*
 ** ==================
@@ -95,9 +108,9 @@ int		print_err(int err_no);
 char	*get_next_line(int fd);
 void	init_data(t_data *data);
 void	init_mlx(t_data *data);
+int		init_texture(t_data *data);
 char	**ft_split_set(char *s, char *charset);
 void	free_all(int fd, char *line, t_data *data);
-double	ft_fabs(double n);
 
 /*
 ** ==================
@@ -119,6 +132,14 @@ int		is_player(t_data *data, int i, int j);
 ** ==================
 */
 void	lay_loop(t_data *data);
+void	draw_wall(t_data *data);
+void	init_cam(t_cam *cam, t_ray *ray, int x);
+void	calc_side_dist(t_cam *cam, t_ray *ray);
+void	dda(t_data *data);
+void	calc_line_hieght(t_cam *cam, t_ray *ray);
+void	select_texture(t_cam *cam, t_ray *ray, t_tex *tex);
+void	tex_to_buf(t_cam *cam, t_ray *ray, t_tex *tex, int x);
+void	buf_to_img(t_data *data);
 
 /*
 ** ==================
@@ -126,11 +147,11 @@ void	lay_loop(t_data *data);
 ** ==================
 */
 int		key_main(int key, t_data *data);
-void	key_w(t_lay *info, char **map);
-void	key_a(t_lay *info, char **map);
-void	key_s(t_lay *info, char **map);
-void	key_d(t_lay *info, char **map);
-void	key_ar_l(t_lay *info);
-void	key_ar_r(t_lay *info);
+void	key_w(t_cam *cam, char **map);
+void	key_a(t_cam *cam, char **map);
+void	key_s(t_cam *cam, char **map);
+void	key_d(t_cam *cam, char **map);
+void	key_ar_l(t_cam *cam);
+void	key_ar_r(t_cam *cam);
 
 #endif
