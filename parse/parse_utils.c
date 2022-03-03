@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 15:03:02 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 19:57:38 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,16 @@ int	check_type(char *line)
 		if (ft_isdigit(line[i]))
 			return (2);
 	}
+	return (0);
+}
+
+int	check_extension(char *filename)
+{
+	int	len;
+
+	len = ft_strlen(filename);
+	if (ft_strncmp(".cub", &filename[len - 4], 4))
+		return (1);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:11:28 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:47:20 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 19:54:07 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	print_err(int err_no)
 		return (printf("Allocated error\n"));
 	else if (err_no == INVALID_MAP)
 		return (printf("Invalid map\n"));
+	else if (err_no == INVALID_FILE)
+		return (printf("Inavalid file\n"));
 	return (0);
 }

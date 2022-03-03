@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:37:53 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 19:55:18 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,17 @@ int	parse(char *line, t_data *data)
 ** parse_map() 에서 .cub 파일을 다시 한번 열어서, map 정보 파싱
 ** check_map() 에서 올바른 맵인지 체크
 */
-void	parse_cub(t_data *data, char *file_path)
+int	parse_cub(t_data *data, char *file_path)
 {
 	int		fd;
 	char	*line;
 
+	if (check_extension(file_path))
+		return (print_err(INVALID_FILE));
 	init_data(data);
 	fd = open("./map/example.cub", O_RDONLY);
 	if (fd == -1)
-		print_err(OPEN_ERR);
+		return (print_err(OPEN_ERR));
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -61,4 +63,5 @@ void	parse_cub(t_data *data, char *file_path)
 	parse_map(data, file_path);
 	if (check_map(data))
 		free_all(0, NULL, data);
+	return (0);
 }

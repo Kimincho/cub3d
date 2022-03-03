@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:06:31 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/02 11:51:07 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 19:53:21 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define NOENOUGH_ELEMENT		3
 # define ALLOC_ERR				4
 # define INVALID_MAP			5
+# define INVALID_FILE			6
 
 /*
 ** ==================
