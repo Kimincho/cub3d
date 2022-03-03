@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/01 16:37:50 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/03 20:19:27 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	parse_map(t_data *data, char *file_path)
 	data->map = (char **)malloc(sizeof(char *) * (data->m_row + 1));
 	if (data->map == NULL)
 		return (print_err(ALLOC_ERR));
-	fd = open("./map/example.cub", O_RDONLY);
+	fd = open(file_path, O_RDONLY);
 	i = 0;
 	while (1)
 	{

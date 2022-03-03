@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 19:55:18 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/03 20:19:13 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	parse_cub(t_data *data, char *file_path)
 	if (check_extension(file_path))
 		return (print_err(INVALID_FILE));
 	init_data(data);
-	fd = open("./map/example.cub", O_RDONLY);
+	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (print_err(OPEN_ERR));
 	while (1)
