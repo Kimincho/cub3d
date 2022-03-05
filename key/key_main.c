@@ -6,16 +6,23 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 15:01:53 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 16:10:31 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:14:00 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+int	close_game(t_data *data)
+{
+	free_all(0, NULL, data);
+	mlx_destroy_image(data->mlx, data->cam->img.img);
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
+}
+
 void	key_esc(t_data *data)
 {
-	// free_all(0, NULL, data);
-	exit(0);
+	close_game(data);
 }
 
 int	key_main(int key, t_data *data)

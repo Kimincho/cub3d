@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 19:55:29 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 19:50:07 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_data
 int		print_err(int err_no);
 char	*get_next_line(int fd);
 void	init_data(t_data *data);
+void	init_dir(t_data *data);
 void	init_mlx(t_data *data);
 int		init_texture(t_data *data);
 char	**ft_split_set(char *s, char *charset);

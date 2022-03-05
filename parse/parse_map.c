@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 12:48:17 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 20:11:54 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@
 ** gnl 로 읽은 line 의 맨 마지막 문자가 '\n' 인 경우와 아닌 경우로 나눔
 ** 파일의 마지막 문장에만 '\n' 문자가 안 붙기 때문이다
 */
-void	put_map_line(t_data *data, char *line, int *i)
+int	put_map_line(t_data *data, char *line, int *i)
 {
 	if (line[ft_strlen(line)-1] == '\n')
 	{
 		data->map[*i] = (char *)malloc(sizeof(char) * ft_strlen(line));
+		if (data->map[*i] == NULL)
+			return (print_err(ALLOC_ERR));
 		ft_strlcpy(data->map[*i], line, ft_strlen(line));
 	}
 	else
 	{
 		data->map[*i] = (char *)malloc(sizeof(char) * (ft_strlen(line) + 1));
+		if (data->map[*i] == NULL)
+			return (print_err(ALLOC_ERR));
 		ft_strlcpy(data->map[*i], line, ft_strlen(line) + 1);
 	}
+	return (0);
 }
 
 /*
@@ -54,7 +59,8 @@ int	parse_map(t_data *data, char *file_path)
 		if (check_type(line) != 2)
 			continue ;
 		else
-			put_map_line(data, line, &i);
+			if (put_map_line(data, line, &i))
+				free_all(fd, line, data);
 		free(line);
 		i++;
 	}

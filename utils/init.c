@@ -3,14 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:18:44 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 17:12:28 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 20:38:20 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	init_ns(t_data *data)
+{
+	if (data->p_dir == 'N' || data->p_dir == 'S')
+	{
+		data->cam->plane_x = -0.66;
+		data->cam->plane_y = 0;
+		data->cam->dir_x = 0;
+		data->cam->dir_y = 1;
+		if (data->p_dir == 'N')
+		{
+			data->cam->dir_y *= -1;
+			data->cam->plane_x = 0.66;
+		}		
+	}
+}
+
+void	init_dir(t_data *data)
+{
+	init_ns(data);
+	if (data->p_dir == 'W' || data->p_dir == 'E')
+	{
+		data->cam->plane_x = 0;
+		data->cam->plane_y = 0.66;
+		data->cam->dir_x = 1;
+		data->cam->dir_y = 0;
+		if (data->p_dir == 'W')
+		{
+			data->cam->dir_x *= -1;
+			data->cam->plane_y = -0.66;
+		}
+	}
+	data->cam->m_speed = 0.05;
+	data->cam->r_speed = 0.05;
+}
 
 void	init_mlx(t_data *data)
 {
@@ -40,6 +75,7 @@ void	init_data(t_data *data)
 	data->m_row = 0;
 	data->map = NULL;
 	data->cam = (t_cam *)malloc(sizeof(t_cam));
+	data->cam->texture = NULL;
 	data->ray = (t_ray *)malloc(sizeof(t_ray));
 	data->tex = (t_tex *)malloc(sizeof(t_tex));
 }
