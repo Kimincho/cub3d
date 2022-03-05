@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 20:19:13 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 13:24:16 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int	parse_cub(t_data *data, char *file_path)
 		if (line == NULL)
 			break ;
 		if (parse(line, data))
-			free_all(fd, line, data);
+			// free_all(fd, line, data);
+			return (1);
 		free(line);
 	}
 	close(fd);
 	parse_map(data, file_path);
 	if (check_map(data))
-		free_all(0, NULL, data);
+		// free_all(0, NULL, data);
+		return (1);
 	return (0);
 }
