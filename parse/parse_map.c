@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:11:54 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:48:25 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ int	is_vaild(t_data *data, int i, int j)
 	char	**map;
 
 	map = data->map;
-	if (i <= 0 || j <= 0 || i >= data->m_row || j >= ft_strlen(map[i]))
+	if (i <= 0 || j <= 0 || i >= data->m_row || j >= (int)ft_strlen(map[i]))
 		return (print_err(INVALID_MAP));
-	if (ft_strlen(map[i - 1]) < j || ft_strlen(map[i + 1]) < j)
+	if ((int)ft_strlen(map[i - 1]) < j || (int)ft_strlen(map[i + 1]) < j)
 		return (print_err(INVALID_MAP));
 	if (ft_isspace(map[i - 1][j]) || ft_isspace(map[i + 1][j])
 		|| ft_isspace(map[i][j - 1]) || ft_isspace(map[i][j + 1]))

@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 19:50:07 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:47:07 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ typedef struct s_data
 	char	p_dir;
 	int		m_row;
 	char	**map;
-	// t_mlx	mlx_cam;
 	t_ray	*ray;
 	t_cam	*cam;
 	t_tex	*tex;
@@ -133,7 +132,7 @@ int		is_player(t_data *data, int i, int j);
 ** raycasting
 ** ==================
 */
-void	ray_loop(t_data *data);
+int		ray_loop(t_data *data);
 void	draw_wall(t_data *data);
 void	init_cam(t_cam *cam, t_ray *ray, int x);
 void	calc_side_dist(t_cam *cam, t_ray *ray);

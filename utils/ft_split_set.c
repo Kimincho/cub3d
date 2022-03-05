@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:06:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/02/26 14:06:08 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:47:31 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ char	**ft_split_set(char *s, char *charset)
 		else
 			s++;
 	}
-	str[i] = '\0';
+	str[i] = NULL;
 	return (str);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 12:48:37 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 20:48:48 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	check_type(char *line)
 	int	i;
 
 	i = -1;
-	while (++i < ft_strlen(line))
+	while (++i < (int)ft_strlen(line))
 	{
 		if (ft_isspace(line[i]))
 			continue ;

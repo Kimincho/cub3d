@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/05 20:43:16 by minchoi           #+#    #+#              #
+#    Updated: 2022/03/05 20:46:18 by minchoi          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
-# -Wall -Wextra -Werror 
-CFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 NAME = cub3d
 
@@ -31,7 +43,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	@ make bonus -C ./libft/
 	@ make -C ./mlx/
-	$(CC) $(CFLAGS) -I ./ $^ -o $@ ./libft/libft.a
+	$(CC) $(MLXFLAGS) -I ./ $^ -o $@ ./libft/libft.a
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 19:07:48 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:28:15 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 20:46:27 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void	load_texture(t_data *data)
 
 int	main(int argc, char *argv[])
 {
-	int		i;
-	char	*buf;
 	t_data	data;
 
 	if (argc != 2)
