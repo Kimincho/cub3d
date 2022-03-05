@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 19:57:38 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 12:48:37 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ int	is_player(t_data *data, int i, int j)
 	c = data->map[i][j];
 	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
 	{
+		if (data->p_dir == 'N' || data->p_dir == 'S'
+			|| data->p_dir == 'W' || data->p_dir == 'E')
+			return (-1);
 		data->p_dir = c;
 		data->cam->pos_x = j + 0.5;
 		data->cam->pos_y = i + 0.5;

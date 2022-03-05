@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 20:19:27 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/05 12:48:17 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	check_map(t_data *data)
 {
 	int	i;
 	int	j;
+	int	player;
 
 	i = -1;
 	while (data->map[++i])
@@ -104,10 +105,12 @@ int	check_map(t_data *data)
 		j = -1;
 		while (data->map[i][++j])
 		{
-			if (!ft_isspace(data->map[i][j]) && !is_player(data, i, j)
+			player = is_player(data, i, j);
+			if ((!ft_isspace(data->map[i][j]) && !player
 				&& data->map[i][j] != '0' && data->map[i][j] != '1')
+				|| player == -1)
 				return (print_err(INVALID_MAP));
-			if (is_player(data, i, j) || data->map[i][j] == '0')
+			if (player || data->map[i][j] == '0')
 			{
 				if (is_vaild(data, i, j))
 					return (1);
