@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 12:34:13 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 13:24:16 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	parse_cub(t_data *data, char *file_path)
 		if (line == NULL)
 			break ;
 		if (parse(line, data))
-			free_all(fd, line, data);
+			// free_all(fd, line, data);
+			return (1);
 		free(line);
 	}
 	close(fd);

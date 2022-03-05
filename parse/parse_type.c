@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:06:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 13:20:48 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/05 13:22:47 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ int	parse_color(char **split, t_data *data)
 		ft_free(split);
 		return (print_err(INVALID_ELEMENT));
 	}
-	if (!ft_strcmp(split[0], "F"))
+	if (!ft_strcmp(split[0], "F") && !data->floor)
 		put_floor(split, data);
-	else if (!ft_strcmp(split[0], "C"))
+	else if (!ft_strcmp(split[0], "C") && !data->ceiling)
 		put_ceiling(split, data);
 	else
 		return (print_err(INVALID_ELEMENT));
