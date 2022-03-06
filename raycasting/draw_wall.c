@@ -6,7 +6,7 @@
 /*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:49:02 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 17:11:47 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/07 05:34:05 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ void	select_texture(t_cam *cam, t_ray *ray, t_tex *tex)
 	if (ray->side == 0)
 	{
 		if (ray->raydir_x > 0)
-			tex->tex_num = 2;
+			tex->tex_num = EA;
 		else
-			tex->tex_num = 3;
+			tex->tex_num = WE;
 		tex->wall_x = cam->pos_y + ray->wall_dist * ray->raydir_y;
 	}
 	else
 	{
 		if (ray->raydir_y > 0)
-			tex->tex_num = 0;
+			tex->tex_num = SO;
 		else
-			tex->tex_num = 1;
+			tex->tex_num = NO;
 		tex->wall_x = cam->pos_x + ray->wall_dist * ray->raydir_x;
 	}
 	tex->wall_x -= floor(tex->wall_x);
 	tex->tex_x = (int)(tex->wall_x * (double)TEXTUREWIDTH);
-	if (ray->side == 0 && ray->raydir_x > 0)
+	if (ray->side == 0 && ray->raydir_x < 0)
 		tex->tex_x = TEXTUREWIDTH - tex->tex_x - 1;
-	if (ray->side == 1 && ray->raydir_y < 0)
+	if (ray->side == 1 && ray->raydir_y > 0)
 		tex->tex_x = TEXTUREWIDTH - tex->tex_x - 1;
 }
 
