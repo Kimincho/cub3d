@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:18:44 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/07 05:27:05 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/08 14:24:40 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	init_mlx(t_data *data)
 	mlx_loop(data->mlx);
 }
 
-void	init_data(t_data *data)
+int	init_data(t_data *data)
 {
 	data->xpm_path[NO] = NULL;
 	data->xpm_path[SO] = NULL;
@@ -75,7 +75,10 @@ void	init_data(t_data *data)
 	data->m_row = 0;
 	data->map = NULL;
 	data->cam = (t_cam *)malloc(sizeof(t_cam));
-	data->cam->texture = NULL;
 	data->ray = (t_ray *)malloc(sizeof(t_ray));
 	data->tex = (t_tex *)malloc(sizeof(t_tex));
+	if (data->cam == NULL || data->ray == NULL || data->tex == NULL)
+		return (print_err(ALLOC_ERR));
+	data->cam->texture = NULL;
+	return (0);
 }

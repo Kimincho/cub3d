@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:47:07 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/08 14:23:10 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct s_data
 */
 int		print_err(int err_no);
 char	*get_next_line(int fd);
-void	init_data(t_data *data);
+int		init_data(t_data *data);
 void	init_dir(t_data *data);
 void	init_mlx(t_data *data);
 int		init_texture(t_data *data);

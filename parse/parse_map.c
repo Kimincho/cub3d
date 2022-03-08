@@ -6,16 +6,12 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:48:25 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/08 15:02:10 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-/*
-** gnl 로 읽은 line 의 맨 마지막 문자가 '\n' 인 경우와 아닌 경우로 나눔
-** 파일의 마지막 문장에만 '\n' 문자가 안 붙기 때문이다
-*/
 int	put_map_line(t_data *data, char *line, int *i)
 {
 	if (line[ft_strlen(line)-1] == '\n')
@@ -35,11 +31,6 @@ int	put_map_line(t_data *data, char *line, int *i)
 	return (0);
 }
 
-/*
-** gnl 을 이용해서 map 정보를 그대로 저장
-** check_type() 이 2 일 때만 map 에 대한 정보
-** line 의 맨 마지막에 \n 이 붙어있는 경우와 아닌 경우를 나눠서 malloc
-*/
 int	parse_map(t_data *data, char *file_path)
 {
 	int		fd;
@@ -69,14 +60,6 @@ int	parse_map(t_data *data, char *file_path)
 	return (0);
 }
 
-/*
-** map[i][j] 좌표가 올바른 위치에 있는 지 체크
-** 그렇지 않다면 return(print_err(INVALID_MAP));
-** return (print_err(INVALID_MAP)) 을 하는 경우
-** 1. 현재 좌표가 맵의 모서리에 존재하는 경우
-** 2. ft_strlen(map[i-1]) or ft_strlen(map[i+1]) 이 j 값보다 작은 경우
-** 3. 현재 좌표 상하좌우 값이 하나라도 isspace() or '\0' 인 경우
-*/
 int	is_vaild(t_data *data, int i, int j)
 {
 	char	**map;
@@ -95,10 +78,6 @@ int	is_vaild(t_data *data, int i, int j)
 	return (0);
 }
 
-/*
-** map[i][j] 값을 2중 반복문으로 확인
-** 0, 1, isspace, NSWE 가 아닌 다른 문자가 있으면 안됨
-*/
 int	check_map(t_data *data)
 {
 	int	i;

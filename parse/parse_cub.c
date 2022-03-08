@@ -6,15 +6,12 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:12:17 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/08 15:00:45 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-/*
-** map 을 제외한 정보 파싱 & map 행 수 체크
-*/
 int	parse(char *line, t_data *data)
 {
 	int	type;
@@ -30,15 +27,11 @@ int	parse(char *line, t_data *data)
 			return (print_err(NOENOUGH_ELEMENT));
 		data->m_row++;
 	}
+	else
+		return (print_err(INVALID_ELEMENT));
 	return (0);
 }
 
-/*
-** file_path 에 해당하는 파일을 열고 파싱 시작
-** parse() 함수에서 map 을 제외한 정보를 파싱하고,
-** parse_map() 에서 .cub 파일을 다시 한번 열어서, map 정보 파싱
-** check_map() 에서 올바른 맵인지 체크
-*/
 int	parse_cub(t_data *data, char *file_path)
 {
 	int		fd;

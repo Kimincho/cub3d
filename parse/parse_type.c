@@ -6,16 +6,12 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:06:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/05 20:35:45 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/08 15:01:54 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-/*
-** put_floor() : 시프트 연산자 이용해서 바닥 color 넣기
-** put_ceiling() : 마찬가지로, 천장 color 넣기
-*/
 void	put_floor(char **split, t_data *data)
 {
 	int	i;
@@ -44,11 +40,6 @@ void	put_ceiling(char **split, t_data *data)
 	}
 }
 
-/*
-** check_xpm() 로 xpm element 가 올바른 지 체크
-** 올바르면 동,서,남,북 식별자 별로 값 저장
-** split[1] = NULL; //나중에 free 할 때 해제가 되지 않도록 하기 위함
-*/
 int	parse_xpm(char **split, t_data *data)
 {
 	if (check_xpm(split))
@@ -72,9 +63,6 @@ int	parse_xpm(char **split, t_data *data)
 	return (0);
 }
 
-/*
-** check_color() 로 .cub 파일에 color element 가 올바른 지 체크
-*/
 int	parse_color(char **split, t_data *data)
 {
 	int	i;
@@ -99,11 +87,6 @@ int	parse_color(char **split, t_data *data)
 	return (0);
 }
 
-/*
-** 공백(isspace) + ',' 문자 set 을 구분 문자로 line 을 split
-** 식별자가 'F' 또는 'C' 일 경우 -> parse_color() 호출
-** 식별자가 그 외에 경우 -> parse_xpm() 호출
-*/
 int	parse_type(char *line, t_data *data)
 {
 	char	**split;
