@@ -6,7 +6,7 @@
 /*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 15:00:45 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:38:40 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	parse_cub(t_data *data, char *file_path)
 	int		fd;
 	char	*line;
 
+	init_data(data);
 	if (check_extension(file_path))
 		return (print_err(INVALID_FILE));
-	init_data(data);
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (print_err(OPEN_ERR));
