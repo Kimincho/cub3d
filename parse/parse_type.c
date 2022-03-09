@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_type.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:06:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 15:01:54 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:32:45 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	parse_xpm(char **split, t_data *data)
 	else
 		return (print_err(INVALID_ELEMENT));
 	split[1] = NULL;
-	data->flag++;
+	data->count++;
 	ft_free(split);
 	return (0);
 }
@@ -82,7 +82,7 @@ int	parse_color(char **split, t_data *data)
 		ft_free(split);
 		return (print_err(INVALID_ELEMENT));
 	}
-	data->flag++;
+	data->count++;
 	ft_free(split);
 	return (0);
 }

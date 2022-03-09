@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 20:43:16 by minchoi           #+#    #+#              #
-#    Updated: 2022/03/05 20:46:18 by minchoi          ###   ########.fr        #
+#    Updated: 2022/03/09 13:34:44 by gkim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit -g3 -fsanitize=address
 
 NAME = cub3d
 

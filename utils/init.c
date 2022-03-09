@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:18:44 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 14:24:40 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:33:13 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ int	init_data(t_data *data)
 	data->xpm_path[EA] = NULL;
 	data->floor = 0;
 	data->ceiling = 0;
-	data->flag = 0;
+	data->count = 0;
 	data->p_dir = 0;
+	data->p_flag = 0;
 	data->m_row = 0;
 	data->map = NULL;
 	data->cam = (t_cam *)malloc(sizeof(t_cam));

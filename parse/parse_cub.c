@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:39:57 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/09 13:07:02 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:34:58 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	parse(char *line, t_data *data, int *m_flag)
 		return (parse_type(line, data));
 	else if (type == 2 || *m_flag == 1)
 	{
-		if (data->flag < 6)
+		if (data->count < 6)
 			return (print_err(NOENOUGH_ELEMENT));
 		data->m_row++;
 		*m_flag = 1;

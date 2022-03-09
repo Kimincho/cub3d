@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/09 13:04:51 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:32:52 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,10 @@ typedef struct s_data
 	char	*xpm_path[4];
 	int		floor;
 	int		ceiling;
-	int		flag;
+	int		count;
 
 	char	p_dir;
+	int		p_flag;
 	int		m_row;
 	char	**map;
 	t_ray	*ray;

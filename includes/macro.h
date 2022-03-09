@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   macro.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gkim <gkim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 13:06:31 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/03 19:53:21 by gkim             ###   ########.fr       */
+/*   Updated: 2022/03/09 13:35:53 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@
 # define ALLOC_ERR				4
 # define INVALID_MAP			5
 # define INVALID_FILE			6
+# define NONE_PLAYER			7
+# define TOO_MANY_PLAYER		8
 
 /*
 ** ==================

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: gkim <gkim@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 14:47:33 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 15:01:40 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:33:38 by gkim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	is_player(t_data *data, int i, int j)
 		data->p_dir = c;
 		data->cam->pos_x = j + 0.5;
 		data->cam->pos_y = i + 0.5;
+		data->p_flag = 1;
 		return (1);
 	}
 	return (0);
