@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 17:08:34 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 15:02:10 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:00:30 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	put_map_line(t_data *data, char *line, int *i)
 {
-	if (line[ft_strlen(line)-1] == '\n')
+	if (line[ft_strlen(line) - 1] == '\n')
 	{
 		data->map[*i] = (char *)malloc(sizeof(char) * ft_strlen(line));
 		if (data->map[*i] == NULL)
@@ -28,12 +28,13 @@ int	put_map_line(t_data *data, char *line, int *i)
 			return (print_err(ALLOC_ERR));
 		ft_strlcpy(data->map[*i], line, ft_strlen(line) + 1);
 	}
+	(*i)++;
 	return (0);
 }
 
-int	parse_map(t_data *data, char *file_path)
+int	parse_map(t_data *data, char *file_path, int fd)
 {
-	int		fd;
+	int		m_flag;
 	char	*line;
 	int		i;
 
@@ -47,13 +48,11 @@ int	parse_map(t_data *data, char *file_path)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if (check_type(line) != 2)
-			continue ;
-		else
-			if (put_map_line(data, line, &i))
-				free_all(fd, line, data);
+		if (check_type(line) == 2)
+			m_flag = 1;
+		if (m_flag == 1 && put_map_line(data, line, &i))
+			free_all(fd, line, data);
 		free(line);
-		i++;
 	}
 	data->map[data->m_row] = NULL;
 	close(fd);

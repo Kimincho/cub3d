@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minchoi <minchoi@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: minchoi <minchoi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 20:03:47 by minchoi           #+#    #+#             */
-/*   Updated: 2022/03/08 14:23:10 by minchoi          ###   ########.fr       */
+/*   Updated: 2022/03/09 13:04:51 by minchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	free_all(int fd, char *line, t_data *data);
 */
 int		parse_cub(t_data *data, char *file_path);
 int		parse_type(char *line, t_data *data);
-int		parse_map(t_data *data, char *file_path);
+int		parse_map(t_data *data, char *file_path, int fd);
 int		check_map(t_data *data);
 int		check_type(char *line);
 int		check_color(char **split);
